@@ -553,7 +553,6 @@
             <div class="p-4 border-t border-gray-200">
                 <div class="flex justify-between mb-2">
                     <span class="text-gray-600">Subtotal</span>
-                    <span id="cart-subtotal" class="font-bold">R$ 0,00</span>
                 </div>
                 <div class="flex justify-between mb-4">
                     <span class="text-gray-600">Frete</span>
@@ -561,7 +560,6 @@
                 </div>
                 <div class="flex justify-between text-lg font-bold mb-6">
                     <span>Total</span>
-                    <span id="cart-total">R$ 0,00</span>
                 </div>
                 
                 <button id="checkout-button" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition duration-300 mb-3">
@@ -638,11 +636,9 @@
                             </div>
                             <div class="flex items-center">
                                 <input type="radio" id="pix" name="payment" value="pix" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500">
-                                <label for="pix" class="ml-2 block text-sm text-gray-700">PIX</label>
                             </div>
                             <div class="flex items-center">
                                 <input type="radio" id="boleto" name="payment" value="boleto" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500">
-                                <label for="boleto" class="ml-2 block text-sm text-gray-700">Boleto Bancário</label>
                             </div>
                         </div>
                     </div>
@@ -685,7 +681,6 @@
             <p class="text-gray-600 mb-6">Obrigado por sua compra. Seu pedido foi recebido e está sendo processado.</p>
             <div class="bg-gray-100 p-4 rounded-lg mb-6 text-left">
                 <p class="font-medium">Número do Pedido: <span id="order-number" class="font-normal">#123456</span></p>
-                <p class="font-medium">Total: <span id="order-total" class="font-normal">R$ 0,00</span></p>
             </div>
             <button id="close-confirmation-modal" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700">
                 Fechar
@@ -781,8 +776,6 @@
             const shipping = subtotal > 0 ? 15 : 0; // Example shipping cost
             const total = subtotal + shipping;
             
-            cartSubtotal.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
-            cartTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
             
             // Update cart items
             if (cart.length === 0) {
